@@ -30,22 +30,31 @@ public class LoginTest {
     @DisplayName("Check status code of POST /api/auth/login")
     public void successfulLoginShouldReturn200Test() {
         Response response = UserApi.login(email, password);
-        response.then().assertThat().statusCode(SC_OK);
+        response
+                .then()
+                .assertThat()
+                .statusCode(SC_OK);
     }
 
     @Test
     @DisplayName("Check body of POST /api/auth/login")
     public void successfulLoginShouldReturnValidBodyTest() {
         Response response = UserApi.login(email, password);
-        response.body().as(SuccessUserCreationResponse.class);
+        response
+                .body()
+                .as(SuccessUserCreationResponse.class);
     }
 
     @Test
     @DisplayName("Check status code and body of POST /api/auth/login with wrong data")
     public void loginWithWrongDataShouldReturn401WithValidBodyTest() {
         Response response = UserApi.login(wrongEmail, wrongPassword);
-        response.then().assertThat().body("message", equalTo("email or password are incorrect")).
-                and().statusCode(SC_UNAUTHORIZED);
+        response
+                .then()
+                .assertThat()
+                .body("message", equalTo("email or password are incorrect")).
+                and()
+                .statusCode(SC_UNAUTHORIZED);
     }
 
     @After

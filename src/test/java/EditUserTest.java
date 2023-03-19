@@ -29,14 +29,24 @@ public class EditUserTest {
     @DisplayName("Check status code and body of PATCH /api/auth/user")
     public void editAuthorizedUserShouldReturn200AndUpdatedData() {
         Response response = UserApi.editUser(email, password, newName);
-        response.then().assertThat().statusCode(SC_OK).and().body("user.name", equalTo(newName));
+        response
+                .then()
+                .assertThat()
+                .statusCode(SC_OK)
+                .and()
+                .body("user.name", equalTo(newName));
     }
 
     @Test
     @DisplayName("Check status code and body of PATCH /api/auth/user without auth")
     public void editUnauthorizedUserShouldReturn401WithValidBodyTest() {
         Response response = UserApi.editUser(wrongEmail, wrongPassword, newName);
-        response.then().assertThat().statusCode(SC_UNAUTHORIZED).and().body("message", equalTo("You should be authorised"));
+        response
+                .then()
+                .assertThat()
+                .statusCode(SC_UNAUTHORIZED)
+                .and()
+                .body("message", equalTo("You should be authorised"));
     }
 
     @After

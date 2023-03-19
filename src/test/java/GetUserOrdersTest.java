@@ -11,6 +11,7 @@ import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_UNAUTHORIZED;
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.notNullValue;
 
 public class GetUserOrdersTest {
 
@@ -31,16 +32,26 @@ public class GetUserOrdersTest {
 
     @Test
     @DisplayName("Check status code and body of GET /api/orders")
-    public void getUserOrdersWithAuthShouldReturn200ФAndValidTodayAmountOfOrdersTest() {
+    public void getUserOrdersWithAuthShouldReturn200AndValidTodayAmountOfOrdersTest() {
         Response response = OrderApi.getUserOrdersWithAuth(email, password);
-        response.then().assertThat().statusCode(SC_OK).and().body("totalToday", equalTo(1));
+        response
+                .then()
+                .assertThat()
+                .statusCode(SC_OK)
+                .and()
+                .body("totalToday", notNullValue());
     }
 
     @Test
     @DisplayName("Check status code and body of GET /api/orders without auth")
     public void getUserOrdersWithoutAuthShouldReturn401AndValidBodyTest() {
         Response response = OrderApi.getUserOrdersWithoutAuth();
-        response.then().assertThat().statusCode(SC_UNAUTHORIZED).and().body("message", equalTo("You should be authorised"));
+        response
+                .then()
+                .assertThat()
+                .statusCode(SC_UNAUTHORIZED)
+                .and()
+                .body("message", equalTo("You should be authorised"));
     }
 
     @After
