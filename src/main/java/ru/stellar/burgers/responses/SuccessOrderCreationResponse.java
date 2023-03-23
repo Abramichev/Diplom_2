@@ -1,6 +1,6 @@
-package stellarburgers.responses;
+package ru.stellar.burgers.responses;
 
-import stellarburgers.objects.Order;
+import ru.stellar.burgers.objects.Order;
 
 public class SuccessOrderCreationResponse {
     private boolean success;

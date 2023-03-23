@@ -1,11 +1,11 @@
-package stellarburgers.utils;
+package ru.stellar.burgers.utils;
 
 import io.restassured.response.Response;
-import stellarburgers.objects.User;
+import ru.stellar.burgers.objects.User;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
-import static stellarburgers.utils.ApiHandlers.*;
+import static ru.stellar.burgers.utils.ApiHandlers.*;
 
 public class UserApi {
     public static Response createUser(String email, String password, String name) {

@@ -1,6 +1,6 @@
-package stellarburgers.responses;
+package ru.stellar.burgers.responses;
 
-import stellarburgers.objects.User;
+import ru.stellar.burgers.objects.User;
 
 public class SuccessUserCreationResponse {
     private boolean success;

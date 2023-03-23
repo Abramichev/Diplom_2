@@ -1,4 +1,4 @@
-package stellarburgers.objects;
+package ru.stellar.burgers.objects;
 
 public class Order {
     private int number;

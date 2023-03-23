@@ -3,10 +3,10 @@ import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import stellarburgers.responses.SuccessOrderCreationResponse;
-import stellarburgers.config.BaseSetUp;
-import stellarburgers.utils.OrderApi;
-import stellarburgers.utils.UserApi;
+import ru.stellar.burgers.responses.SuccessOrderCreationResponse;
+import ru.stellar.burgers.config.BaseSetUp;
+import ru.stellar.burgers.utils.OrderApi;
+import ru.stellar.burgers.utils.UserApi;
 
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.equalTo;

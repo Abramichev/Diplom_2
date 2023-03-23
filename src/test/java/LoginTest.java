@@ -3,9 +3,9 @@ import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import stellarburgers.responses.SuccessUserCreationResponse;
-import stellarburgers.config.BaseSetUp;
-import stellarburgers.utils.UserApi;
+import ru.stellar.burgers.responses.SuccessUserCreationResponse;
+import ru.stellar.burgers.config.BaseSetUp;
+import ru.stellar.burgers.utils.UserApi;
 
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_UNAUTHORIZED;

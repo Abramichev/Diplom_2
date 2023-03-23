@@ -3,13 +3,13 @@ import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import stellarburgers.responses.SuccessUserCreationResponse;
-import stellarburgers.config.BaseSetUp;
-import stellarburgers.utils.UserApi;
+import ru.stellar.burgers.responses.SuccessUserCreationResponse;
+import ru.stellar.burgers.config.BaseSetUp;
+import ru.stellar.burgers.utils.UserApi;
 
-import static org.apache.http.HttpStatus.SC_FORBIDDEN;
-import static org.apache.http.HttpStatus.SC_OK;
+import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.notNullValue;
 
 public class CreateUserTest {
     String email = "qwerty@qwe.ru";
@@ -28,16 +28,10 @@ public class CreateUserTest {
         response
                 .then()
                 .assertThat()
-                .statusCode(SC_OK);
-    }
+                .statusCode(SC_OK)
+                .assertThat().body("success", equalTo(true),
+                "accessToken", notNullValue());
 
-    @Test
-    @DisplayName("Check body of POST /api/auth/register")
-    public void successfulCreationShouldReturnValidBodyTest() {
-        Response response = UserApi.createUser(email, password, name);
-        response
-                .body()
-                .as(SuccessUserCreationResponse.class);
     }
 
     @Test
@@ -51,7 +45,18 @@ public class CreateUserTest {
                 .body("message", equalTo("User already exists"))
                 .and()
                 .statusCode(SC_FORBIDDEN);
+
     }
+
+//    @Test
+//    @DisplayName("Check body of POST /api/auth/register")
+//    public void successfulCreationShouldReturnValidBodyTest() {
+//        Response response = UserApi.createUser(email, password, name);
+//        response
+//                .body()
+//                .as(SuccessUserCreationResponse.class);
+//    }
+
 
     @Test
     @DisplayName("Check status code and body of POST /api/auth/register without name")

@@ -1,4 +1,4 @@
-package stellarburgers.utils;
+package ru.stellar.burgers.utils;
 
 public class ApiHandlers {
     public static final String ORDER = "/api/orders";
