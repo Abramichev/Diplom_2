@@ -1,14 +1,12 @@
 package stellarburgers.objects;
 
-import java.util.List;
-
 public class IngredientsRequest {
-
     private String[] ingredients;
 
     public IngredientsRequest(String[] ingredients) {
         this.ingredients = ingredients;
     }
+
     public IngredientsRequest() {
     }
 

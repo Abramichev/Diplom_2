@@ -1,4 +1,6 @@
-package stellarburgers.objects;
+package stellarburgers.responses;
+
+import stellarburgers.objects.User;
 
 public class SuccessUserCreationResponse {
     private boolean success;
@@ -13,7 +15,9 @@ public class SuccessUserCreationResponse {
         this.refreshToken = refreshToken;
     }
 
-    public SuccessUserCreationResponse() {};
+    public SuccessUserCreationResponse() {
+    }
+
 
     public boolean isSuccess() {
         return success;

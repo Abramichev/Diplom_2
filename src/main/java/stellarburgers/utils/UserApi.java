@@ -8,7 +8,6 @@ import static io.restassured.http.ContentType.JSON;
 import static stellarburgers.utils.ApiHandlers.*;
 
 public class UserApi {
-
     public static Response createUser(String email, String password, String name) {
         User user = new User(email, password, name);
         return given()

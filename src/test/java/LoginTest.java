@@ -3,8 +3,8 @@ import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import stellarburgers.objects.SuccessUserCreationResponse;
-import stellarburgers.utils.BaseSetUp;
+import stellarburgers.responses.SuccessUserCreationResponse;
+import stellarburgers.config.BaseSetUp;
 import stellarburgers.utils.UserApi;
 
 import static org.apache.http.HttpStatus.SC_OK;
@@ -12,11 +12,9 @@ import static org.apache.http.HttpStatus.SC_UNAUTHORIZED;
 import static org.hamcrest.Matchers.equalTo;
 
 public class LoginTest {
-
     String email = "qwerty@qwe.ru";
     String password = "2345";
     String name = "simpson";
-
     String wrongEmail = "wrong@wrong.com";
     String wrongPassword = "wrong12345";
 

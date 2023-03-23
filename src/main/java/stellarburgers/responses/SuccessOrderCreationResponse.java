@@ -1,4 +1,6 @@
-package stellarburgers.objects;
+package stellarburgers.responses;
+
+import stellarburgers.objects.Order;
 
 public class SuccessOrderCreationResponse {
     private boolean success;

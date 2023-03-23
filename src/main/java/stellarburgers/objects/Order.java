@@ -1,7 +1,6 @@
 package stellarburgers.objects;
 
 public class Order {
-
     private int number;
 
     public Order(int number) {

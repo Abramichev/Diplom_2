@@ -3,8 +3,8 @@ import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import stellarburgers.objects.SuccessOrderCreationResponse;
-import stellarburgers.utils.BaseSetUp;
+import stellarburgers.responses.SuccessOrderCreationResponse;
+import stellarburgers.config.BaseSetUp;
 import stellarburgers.utils.OrderApi;
 import stellarburgers.utils.UserApi;
 
@@ -12,7 +12,6 @@ import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.equalTo;
 
 public class CreateOrderTest {
-
 
     String[] ingredients = {"61c0c5a71d1f82001bdaaa6f", "61c0c5a71d1f82001bdaaa71"};
     String[] noIngredients = {};
@@ -24,8 +23,8 @@ public class CreateOrderTest {
     @Before
     public void setUp() {
         BaseSetUp.setUp();
-
     }
+
     @Test
     @DisplayName("Check status code of POST /api/orders without auth")
     public void createOrderWithoutAuthShouldReturn200Test() {
@@ -35,6 +34,7 @@ public class CreateOrderTest {
                 .assertThat()
                 .statusCode(SC_OK);
     }
+
     @Test
     @DisplayName("Check body structure of POST /api/orders without auth")
     public void createOrderWithoutAuthShouldReturnValidBodyTest() {
@@ -43,6 +43,7 @@ public class CreateOrderTest {
                 .body()
                 .as(SuccessOrderCreationResponse.class);
     }
+
     @Test
     @DisplayName("Check status code of POST /api/orders with auth")
     public void createOrderWithAuthShouldReturn200Test() {
@@ -52,6 +53,7 @@ public class CreateOrderTest {
                 .assertThat()
                 .statusCode(SC_OK);
     }
+
     @Test
     @DisplayName("Check body structure code of POST /api/orders with auth")
     public void createOrderWithAuthShouldReturnValidBodyTest() {
@@ -60,6 +62,7 @@ public class CreateOrderTest {
                 .body()
                 .as(SuccessOrderCreationResponse.class);
     }
+
     @Test
     @DisplayName("Check status code and body of POST /api/orders without auth")
     public void createOrderWithIngredientsShouldReturn200AndValidBurgerNameTest() {
@@ -71,6 +74,7 @@ public class CreateOrderTest {
                 .and()
                 .body("name", equalTo("Бессмертный био-марсианский бургер"));
     }
+
     @Test
     @DisplayName("Check status code and body of POST /api/orders without ingredients")
     public void createOrderWithoutIngredientsShouldReturn400AndValidMessageTest() {
@@ -82,6 +86,7 @@ public class CreateOrderTest {
                 .and()
                 .body("message", equalTo("Ingredient ids must be provided"));
     }
+
     @Test
     @DisplayName("Check status code and body of POST /api/orders with wrong ingredient")
     public void createOrderWithWrongIngredientHashShouldReturn500Test() {
@@ -91,6 +96,7 @@ public class CreateOrderTest {
                 .assertThat()
                 .statusCode(SC_INTERNAL_SERVER_ERROR);
     }
+
     @After
     public void tearDown() {
         try {

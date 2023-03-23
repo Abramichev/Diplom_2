@@ -3,15 +3,13 @@ import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import stellarburgers.objects.SuccessUserCreationResponse;
-import stellarburgers.utils.BaseSetUp;
+import stellarburgers.responses.SuccessUserCreationResponse;
+import stellarburgers.config.BaseSetUp;
 import stellarburgers.utils.UserApi;
 
-import static org.apache.http.HttpStatus.*;
-import static org.hamcrest.Matchers.equalTo;
-
-import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.apache.http.HttpStatus.SC_FORBIDDEN;
+import static org.apache.http.HttpStatus.SC_OK;
+import static org.hamcrest.Matchers.equalTo;
 
 public class CreateUserTest {
     String email = "qwerty@qwe.ru";
@@ -20,7 +18,8 @@ public class CreateUserTest {
 
     @Before
     public void setUp() {
-        BaseSetUp.setUp();}
+        BaseSetUp.setUp();
+    }
 
     @Test
     @DisplayName("Check status code of POST /api/auth/register")
