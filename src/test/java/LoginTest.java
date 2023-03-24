@@ -3,10 +3,11 @@ import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.stellar.burgers.responses.SuccessUserCreationResponse;
 import ru.stellar.burgers.config.BaseSetUp;
 import ru.stellar.burgers.utils.UserApi;
-
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_UNAUTHORIZED;
 import static org.hamcrest.Matchers.equalTo;
@@ -17,6 +18,7 @@ public class LoginTest {
     private String name = "simpson";
     private String wrongEmail = "wrong@wrong.com";
     private String wrongPassword = "wrong12345";
+    private static Logger logger = LoggerFactory.getLogger(LoginTest.class);
 
     @Before
     public void setUp() {
@@ -60,7 +62,7 @@ public class LoginTest {
         try {
             UserApi.deleteUser(email, password);
         } catch (IllegalArgumentException exception) {
-            System.out.println("Невозможно удалить несуществующего пользователя!");
+            logger.error("Невозможно удалить несуществующего пользователя!");
         }
     }
 }

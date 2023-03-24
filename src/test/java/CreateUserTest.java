@@ -3,6 +3,8 @@ import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.stellar.burgers.responses.SuccessUserCreationResponse;
 import ru.stellar.burgers.config.BaseSetUp;
 import ru.stellar.burgers.utils.UserApi;
@@ -16,6 +18,7 @@ public class CreateUserTest {
     private String password = "2345";
     private String name = "simpson";
 
+    private static Logger logger = LoggerFactory.getLogger(CreateUserTest.class);
     @Before
     public void setUp() {
         BaseSetUp.setUp();
@@ -75,7 +78,7 @@ public class CreateUserTest {
         try {
             UserApi.deleteUser(email, password);
         } catch (IllegalArgumentException exception) {
-            System.out.println("Невозможно удалить несуществующего пользователя!");
+            logger.error("Невозможно удалить несуществующего пользователя!");
         }
 
     }
