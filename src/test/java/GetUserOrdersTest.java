@@ -13,10 +13,10 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
 public class GetUserOrdersTest {
-    String[] ingredients = {"61c0c5a71d1f82001bdaaa6f", "61c0c5a71d1f82001bdaaa71"};
-    String email = "qwerty@qwe.ru";
-    String password = "2345";
-    String name = "simpson";
+    private String[] ingredients = {"61c0c5a71d1f82001bdaaa6f", "61c0c5a71d1f82001bdaaa71"};
+    private String email = "qwerty@qwe.ru";
+    private String password = "2345";
+    private String name = "simpson";
 
     @Before
     public void setUp() {

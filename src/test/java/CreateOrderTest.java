@@ -13,12 +13,12 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class CreateOrderTest {
 
-    String[] ingredients = {"61c0c5a71d1f82001bdaaa6f", "61c0c5a71d1f82001bdaaa71"};
-    String[] noIngredients = {};
-    String[] wrongIngredients = {"Bad ingridients"};
-    String email = "qwerty@mail.ru";
-    String password = "1122";
-    String name = "Andrey";
+    private String[] ingredients = {"61c0c5a71d1f82001bdaaa6f", "61c0c5a71d1f82001bdaaa71"};
+    private String[] noIngredients = {};
+    private String[] wrongIngredients = {"Bad ingridients"};
+    private String email = "qwerty@mail.ru";
+    private String password = "1122";
+    private String name = "Andrey";
 
     @Before
     public void setUp() {

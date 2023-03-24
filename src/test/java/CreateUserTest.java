@@ -12,9 +12,9 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
 public class CreateUserTest {
-    String email = "qwerty@qwe.ru";
-    String password = "2345";
-    String name = "simpson";
+    private String email = "qwerty@qwe.ru";
+    private String password = "2345";
+    private String name = "simpson";
 
     @Before
     public void setUp() {
